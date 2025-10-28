@@ -279,12 +279,18 @@ const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "webp", "svg"];
 const buildImageSources = (word) => {
   const encodedWord = encodeURIComponent(word);
   const letterFolder = letterConfig.name.toLowerCase();
-  // IMPORTANT: Use paths relative to the document (games/train/index.html)
-  // Two levels up keeps us inside the repo on GitHub Pages (/gamelogo/...),
-  // while three levels up would escape to the domain root and 404.
+  // Build absolute paths under the project root so that GitHub Pages
+  // (served at /<repo-name>/...) resolves URLs correctly.
+  const projectRoot = (() => {
+    const path = window.location.pathname || "/";
+    // e.g., "/gamelogo/games/train/index.html" -> "/gamelogo/"
+    const match = path.match(/^\/(.+?)\//);
+    return match ? `/${match[1]}/` : "/";
+  })();
+
   const basePaths = [
-    `../../images/words/${letterFolder}/${encodedWord}`,
-    `../../images/words/${encodedWord}`,
+    `${projectRoot}images/words/${letterFolder}/${encodedWord}`,
+    `${projectRoot}images/words/${encodedWord}`,
   ];
   const sources = [];
   basePaths.forEach((base) => {
