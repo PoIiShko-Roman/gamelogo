@@ -1,0 +1,14 @@
+{"tasks":[
+	{"id":"task-1","description":"Refactor game layout to use single open play area with random wagon positions and bottom train assembly zone","status":"done"},
+	{"id":"task-2","description":"Update CSS to remove dual card look (borders/shadows) and style unified field with floating wagons","status":"done"},
+	{"id":"task-3","description":"Adjust question display to show centered overlay once train assembled","status":"done"},
+	{"id":"task-4","description":"Update JS to randomly place wagons in field and update layout logic","status":"done"},
+	{"id":"task-5","description":"Verify interactions (drag/drop, responsive behavior, question overlay trigger)","status":"pending"},
+	{"id":"task-6","description":"Move home page assets (index.html) CSS and JS into root files","status":"done"},
+	{"id":"task-7","description":"Organize About page into its own folder with dedicated CSS and JS","status":"done"},
+	{"id":"task-8","description":"Organize Select page into its own folder with dedicated CSS and JS","status":"done"},
+	{"id":"task-9","description":"Move train game into games/train folder with local CSS and JS","status":"done"},
+	{"id":"task-10","description":"Create placeholder folders for games 2 and 3","status":"done"},
+	{"id":"task-11","description":"Update navigation links and relative paths after restructuring","status":"done"},
+	{"id":"task-12","description":"Remove obsolete apps/ and shared/ directories","status":"done"}
+]}

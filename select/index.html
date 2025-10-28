@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Обрати слова — Логопедичні ігри</title>
+    <meta
+      name="description"
+      content="Оберіть літеру та тему слів, щоб розпочати логопедичну гру Потяг."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="message-area" role="status" aria-live="polite"></div>
+    <header>
+      <div class="navbar">
+        <a class="brand" href="../index.html" aria-label="На головну">
+          Логопедичні ігри
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Меню"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="menu-label">Меню</span>
+        </button>
+        <nav class="nav-links" id="primary-nav">
+          <a href="../index.html">Ігри</a>
+          <a href="../about/index.html">Про нас</a>
+          <button class="theme-toggle" type="button" aria-label="Світла тема"></button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="info-section">
+        <h1>Обираємо слова для потяга</h1>
+        <p>
+          Спочатку виберіть літеру, з якою будете працювати, а потім тему слів. Коли будете готові —
+          натисніть «Почати гру».
+        </p>
+        <div>
+          <h2 class="section-title" style="margin-top: 2rem;">Літери</h2>
+          <div class="letter-grid" data-letter-list></div>
+        </div>
+        <div>
+          <h2 class="section-title" style="margin-top: 2rem;">Категорії</h2>
+          <p data-selection-label>Спочатку оберіть літеру.</p>
+          <div class="category-grid" data-category-list></div>
+        </div>
+        <div class="select-actions">
+          <button class="btn btn-primary" type="button" data-start-game disabled>Почати гру</button>
+          <a class="btn btn-secondary" href="../index.html">Повернутися</a>
+        </div>
+      </section>
+      <section class="info-section" id="how-to-play">
+        <h2>Як грати у «Потяг»</h2>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Крок 1. Оберіть тему</h3>
+            <p>На цій сторінці натисніть літеру та категорію слів, які хочете відпрацювати.</p>
+          </article>
+          <article class="info-card">
+            <h3>Крок 2. Зберіть потяг</h3>
+            <p>
+              У грі перетягніть правильні вагончики в порожні місця поруч із локомотивом і натисніть
+              «Перевірити».
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Крок 3. Перевірка уважності</h3>
+            <p>
+              Після успішного складання потяга дайте відповіді на запитання, щоб закріпити нові слова.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-inner">
+        <span>© 2025 Логопедичні ігри</span>
+        <nav>
+          <a href="../index.html">Ігри</a>
+          <a href="../about/index.html">Про нас</a>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

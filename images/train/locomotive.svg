@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" role="img" aria-labelledby="title desc">
+  <title id="title">Заглушка локомотива для Потяга</title>
+  <desc id="desc">Стилізований локомотив для використання в грі</desc>
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6f7dfb" />
+      <stop offset="100%" stop-color="#4c5aff" />
+    </linearGradient>
+    <linearGradient id="cabinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5ff" />
+      <stop offset="100%" stop-color="#dbe4ff" />
+    </linearGradient>
+  </defs>
+  <rect x="28" y="54" width="120" height="52" rx="18" fill="url(#bodyGradient)" />
+  <rect x="108" y="30" width="54" height="48" rx="16" fill="url(#cabinGradient)" />
+  <rect x="160" y="66" width="48" height="40" rx="14" fill="#8aa5ff" opacity="0.85" />
+  <circle cx="70" cy="122" r="18" fill="#1f2433" />
+  <circle cx="128" cy="122" r="18" fill="#1f2433" />
+  <circle cx="184" cy="122" r="16" fill="#1f2433" opacity="0.9" />
+  <circle cx="70" cy="122" r="8" fill="#ffffff" opacity="0.8" />
+  <circle cx="128" cy="122" r="8" fill="#ffffff" opacity="0.8" />
+  <circle cx="184" cy="122" r="7" fill="#ffffff" opacity="0.8" />
+  <rect x="52" y="38" width="32" height="24" rx="8" fill="#ffffff" opacity="0.45" />
+</svg>

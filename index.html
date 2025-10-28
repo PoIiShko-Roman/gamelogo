@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Логопедичні ігри — Потяг для розвитку мовлення</title>
+    <meta
+      name="description"
+      content="Логопедичні ігри для дітей до 10 років: адаптивна гра Потяг для тренування вимови та пам'яті."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="message-area" role="status" aria-live="polite"></div>
+    <header>
+      <div class="navbar">
+        <a class="brand" href="index.html" aria-label="На головну">
+          Логопедичні ігри
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Меню"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="menu-label">Меню</span>
+        </button>
+        <nav class="nav-links" id="primary-nav">
+          <a href="index.html" aria-current="page">Ігри</a>
+          <a href="about/index.html">Про нас</a>
+          <button class="theme-toggle" type="button" aria-label="Світла тема"></button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="page-heading">Оберіть гру для заняття</h1>
+      <section>
+        <h2 class="section-title">Ігри</h2>
+        <div class="game-grid">
+          <article class="game-card">
+            <button class="game-card-trigger" type="button" data-game-id="potyah">
+              <span class="media-frame">
+                <img
+                  src="images/game-cards/potyah.svg"
+                  alt="Ілюстрація для гри Потяг"
+                  loading="lazy"
+                  data-fallback="images/game-cards/fallback.svg"
+                />
+              </span>
+              <span class="game-card-title">Потяг</span>
+              <span class="game-card-status">Доступно</span>
+            </button>
+          </article>
+          <article class="game-card">
+            <button class="game-card-trigger" type="button" data-game-id="letters">
+              <span class="media-frame">
+                <img
+                  src="images/game-cards/upcoming-1.svg"
+                  alt="Заглушка з текстом Гра в розробці"
+                  loading="lazy"
+                  data-fallback="images/game-cards/fallback.svg"
+                />
+              </span>
+              <span class="game-card-title">Гра в розробці</span>
+              <span class="game-card-status soon">Скоро</span>
+            </button>
+          </article>
+          <article class="game-card">
+            <button class="game-card-trigger" type="button" data-game-id="rhymes">
+              <span class="media-frame">
+                <img
+                  src="images/game-cards/upcoming-2.svg"
+                  alt="Заглушка з текстом Гра в розробці"
+                  loading="lazy"
+                  data-fallback="images/game-cards/fallback.svg"
+                />
+              </span>
+              <span class="game-card-title">Гра в розробці</span>
+              <span class="game-card-status soon">Скоро</span>
+            </button>
+          </article>
+        </div>
+        <div class="game-details" data-game-details hidden>
+          <h3 data-details-title></h3>
+          <p data-details-description></p>
+          <div data-details-rules></div>
+          <div class="actions" data-details-actions></div>
+        </div>
+      </section>
+
+    </main>
+    <footer>
+      <div class="footer-inner">
+        <span>© 2025 Логопедичні ігри</span>
+        <nav>
+          <a href="index.html">Ігри</a>
+          <a href="about/index.html">Про нас</a>
+        </nav>
+      </div>
+    </footer>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Заглушка для відсутнього зображення гри</title>
+  <desc id="desc">М'який градієнт та прості фігури</desc>
+  <defs>
+    <linearGradient id="fallbackGrad" x1="16" y1="12" x2="104" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffe3f5" />
+      <stop offset="45%" stop-color="#dff4ff" />
+      <stop offset="100%" stop-color="#e5e9ff" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="104" height="104" rx="28" fill="url(#fallbackGrad)" />
+  <g fill="#6f7dfb" opacity="0.6">
+    <path d="M40 46c0-8.3 6.7-15 15-15h10c8.3 0 15 6.7 15 15v10c0 8.3-6.7 15-15 15h-10c-8.3 0-15-6.7-15-15V46Z" />
+    <path d="M48 84h24a6 6 0 0 1 0 12H48a6 6 0 0 1 0-12Z" />
+  </g>
+  <circle cx="48" cy="44" r="6" fill="#3fc299" />
+  <circle cx="72" cy="44" r="6" fill="#ff8fab" />
+</svg>
