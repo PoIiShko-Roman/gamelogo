@@ -503,9 +503,11 @@ header {
 }
 
 .btn {
-	border: none;
-	border-radius: 999px;
-	padding: 0.65rem 1.4rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-weight: 800;
+	letter-spacing: 0.02em;
 	font-weight: 700;
 	font-size: 0.95rem;
 	cursor: pointer;
@@ -513,6 +515,11 @@ header {
 	box-shadow: var(--shadow-soft);
 	display: inline-flex;
 	align-items: center;
+
+.brand-label {
+	font-size: 1.05rem;
+	line-height: 1;
+}
 	justify-content: center;
 	gap: 0.35rem;
 }
