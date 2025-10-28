@@ -141,13 +141,6 @@ header {
 	letter-spacing: 0.01em;
 }
 
-.brand-logo {
-  height: 38px;
-  width: auto;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .theme-toggle {
 	border: 1px solid var(--border-subtle);
 	border-radius: 999px;
@@ -505,23 +498,14 @@ header {
 .btn {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.5rem;
-	font-weight: 800;
-	letter-spacing: 0.02em;
+	justify-content: center;
+	gap: 0.35rem;
 	font-weight: 700;
+	letter-spacing: 0.02em;
 	font-size: 0.95rem;
 	cursor: pointer;
 	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 	box-shadow: var(--shadow-soft);
-	display: inline-flex;
-	align-items: center;
-
-.brand-label {
-	font-size: 1.05rem;
-	line-height: 1;
-}
-	justify-content: center;
-	gap: 0.35rem;
 }
 
 .btn-primary {
