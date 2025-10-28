@@ -141,6 +141,13 @@ header {
 	letter-spacing: 0.01em;
 }
 
+.brand-logo {
+  height: 38px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .theme-toggle {
 	border: 1px solid var(--border-subtle);
 	border-radius: 999px;
