@@ -274,8 +274,23 @@ const initStatus = () => {
   statusText.textContent = `${prefix}, тема — ${suffix}. Зберіть потяг.`;
 };
 
-const imagePath = (word) =>
-  `../../../images/words/${letterConfig.name.toLowerCase()}/${encodeURIComponent(word)}.png`;
+const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "webp", "svg"];
+
+const buildImageSources = (word) => {
+  const encodedWord = encodeURIComponent(word);
+  const letterFolder = letterConfig.name.toLowerCase();
+  const basePaths = [
+    `../../../images/words/${letterFolder}/${encodedWord}`,
+    `../../../images/words/${encodedWord}`,
+  ];
+  const sources = [];
+  basePaths.forEach((base) => {
+    IMAGE_EXTENSIONS.forEach((extension) => {
+      sources.push(`${base}.${extension}`);
+    });
+  });
+  return sources;
+};
 
 const ensureAudio = () => {
   if (audioCtx) {
@@ -399,17 +414,37 @@ const createWagonElement = (item) => {
   wagon.dataset.word = item.word;
   wagon.dataset.correct = item.isCorrect ? "true" : "false";
   const img = document.createElement("img");
-  img.src = imagePath(item.word);
   img.alt = item.word;
   img.loading = "lazy";
 
-  img.addEventListener("error", () => {
+  const imageSources = buildImageSources(item.word);
+  const applyNextImageSource = () => {
+    while (imageSources.length) {
+      const candidate = imageSources.shift();
+      if (candidate) {
+        img.src = candidate;
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const handleImageError = () => {
+    if (applyNextImageSource()) {
+      return;
+    }
+    img.removeEventListener("error", handleImageError);
     img.remove();
     const fallback = document.createElement("div");
     fallback.className = "image-placeholder";
     fallback.textContent = item.word.charAt(0).toUpperCase();
     wagon.prepend(fallback);
-  });
+  };
+
+  img.addEventListener("error", handleImageError);
+  if (!applyNextImageSource()) {
+    handleImageError();
+  }
 
   const label = document.createElement("div");
   label.className = "label";
@@ -427,7 +462,17 @@ const renderSlots = () => {
   const locomotive = document.createElement("div");
   locomotive.className = "locomotive";
   locomotive.dataset.locomotive = "true";
-  locomotive.textContent = letterConfig.name;
+
+  const locoImage = document.createElement("img");
+  locoImage.src = "../../images/train/locomotive.png";
+  locoImage.alt = "Локомотив";
+  locoImage.loading = "lazy";
+
+  const locoLabel = document.createElement("span");
+  locoLabel.className = "locomotive-label";
+  locoLabel.textContent = letterConfig.name;
+
+  locomotive.append(locoImage, locoLabel);
 
   slotWrapper.appendChild(locomotive);
 
@@ -900,27 +945,35 @@ const finalizeMemoryAnswer = (question) => {
     const value = btn.textContent;
     const shouldBeSelected = correctSet.has(value);
     const isSelected = selected.has(value);
-    if (shouldBeSelected && isSelected) {
-      btn.classList.add("selected");
-    }
+    btn.classList.toggle("selected", isSelected);
+    btn.classList.toggle("correct", shouldBeSelected && isSelected);
+    btn.classList.toggle("incorrect", !shouldBeSelected && isSelected);
     if (shouldBeSelected !== isSelected) {
       allGood = false;
     }
-    btn.setAttribute("disabled", "true");
   });
-  quizActionBtn.setAttribute("disabled", "true");
+
   if (allGood) {
+    options.forEach((btn) => btn.setAttribute("disabled", "true"));
+    quizActionBtn.setAttribute("disabled", "true");
     quizScore += 1;
     feedbackLabel.textContent = "Чудово! Ти все запам'ятав.";
     playTone(true);
-  } else {
-    feedbackLabel.textContent = "Спробуй ще раз запам'ятати вагони наступного разу.";
-    playTone(false);
+    window.setTimeout(() => {
+      questionIndex += 1;
+      showNextQuestion();
+    }, 1400);
+    return;
   }
+
+  feedbackLabel.textContent = "Не зовсім. Спробуй ще раз.";
+  playTone(false);
+  quizActionBtn.textContent = "Спробувати ще раз";
+  quizActionBtn.removeAttribute("disabled");
+  options.forEach((btn) => btn.removeAttribute("disabled"));
   window.setTimeout(() => {
-    questionIndex += 1;
-    showNextQuestion();
-  }, 1500);
+    options.forEach((btn) => btn.classList.remove("incorrect", "correct"));
+  }, 900);
 };
 
 const finishQuiz = () => {
